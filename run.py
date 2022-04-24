@@ -1,7 +1,7 @@
 import string
 from random import choice
-from user import User
-from user import Credentials
+from username import User
+from username import Credentials
 
 def create_user(firstname, lastname, username, password):
     """
