@@ -28,6 +28,31 @@ def display_users():
     """
     return User.display_users()
 
+def find_user_by_number(number):
+    """
+    Function that finds a user by number and returns the user
+    """
+    return User.find_by_number(number)
+
+def create_account(accountname, accountusername, accountpassword):
+    """
+    Function to create a new account
+    """
+    new_account = Credentials(accountname, accountusername, accountpassword)
+    return new_account
+
+def save_account(account):
+    """
+    Function to save a new account
+    """
+    account.save_account()
+
+def delete_account(account):
+    """
+    Function to delete an account
+    """
+    account.delete_account()
+
 
 
 
