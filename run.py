@@ -22,6 +22,12 @@ def delete_user(user):
     """
     user.delete_user()
 
+def display_users():
+    """
+    Function that returns the user list
+    """
+    return User.display_users()
+
 
 
 
