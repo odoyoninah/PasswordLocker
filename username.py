@@ -68,3 +68,22 @@ class User:
             if user.username == username:
                 return True
         return False   
+
+    class Credentials:
+        """
+        Class that generates a list of credentials
+        """
+
+        CredentialsList = []
+
+        def __init__(self, accountname, accountusername, accountpassword):
+
+            """
+            __init__ method that helps us define properties for our objects.
+            """
+
+            self.accountname = accountname
+            self.accountusername = accountusername
+            self.accountpassword = accountpassword
+
+        
