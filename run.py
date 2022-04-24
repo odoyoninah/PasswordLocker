@@ -1,5 +1,3 @@
-import string
-from random import choice
 from username import User
 from username import Credentials
 
@@ -91,6 +89,8 @@ def main():
             p_word = input()
 
             save_user(create_user(f_name, l_name, u_name, p_word))
+
+        
 
 
 
