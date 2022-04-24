@@ -45,3 +45,14 @@ class User:
         """
 
         return cls.UserList
+
+    @classmethod
+    def find_by_number(cls, number):
+
+        """
+        method that takes in a number and returns a user that matches that number
+        """
+
+        for user in cls.UserList:
+            if user.username == number:
+                return user    
