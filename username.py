@@ -94,4 +94,12 @@ class User:
 
             Credentials.AccountsList.append(self)
 
+        def delete_account(self):
+                
+                """
+                delete_account method deletes a saved account from the account_list
+                """
+    
+                Credentials.AccountsList.remove(self)
+
         
