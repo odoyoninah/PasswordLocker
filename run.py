@@ -53,6 +53,44 @@ def delete_account(account):
     """
     account.delete_account()
 
+def find_account_by_number(number):
+    """
+    Function that finds an account by number and returns the account
+    """
+    return Credentials.find_by_number(number)
+
+def display_accounts():
+    """
+    Function that returns the account list
+    """
+    return Credentials.display_accounts()
+
+def main():
+    while True:
+        print("Hello! Welcome to Password Locker. What is your name?")
+        user_name = input()
+        print(f"Hello {user_name}. What would you like to do?")
+        print('\n')
+        print("Use these short codes : cc - create a new user account, da - display accounts, fa - find an account, ex - exit the user list.")
+        short_code = input().lower()
+
+        if short_code == 'cc':
+            print("New User")
+            print("-"*10)
+
+            print("First name ....")
+            f_name = input()
+
+            print("Last name ...")
+            l_name = input()
+
+            print("Username ...")
+            u_name = input()
+
+            print("Password ...")
+            p_word = input()
+
+            save_user(create_user(f_name, l_name, u_name, p_word))
 
 
 
