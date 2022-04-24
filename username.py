@@ -102,4 +102,14 @@ class User:
     
                 Credentials.AccountsList.remove(self)
 
+        @classmethod
+        def display_accounts(cls):
+
+            """
+            method that returns the account list
+            """
+            for account in cls.AccountsList:
+                return cls.AccountsList
+            
+
         
