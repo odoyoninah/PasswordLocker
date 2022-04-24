@@ -74,7 +74,7 @@ class User:
         Class that generates a list of credentials
         """
 
-        CredentialsList = []
+        AccountsList = []
 
         def __init__(self, accountname, accountusername, accountpassword):
 
@@ -85,5 +85,13 @@ class User:
             self.accountname = accountname
             self.accountusername = accountusername
             self.accountpassword = accountpassword
+
+        def save_account(self):
+
+            """
+            save_account method saves account objects into account_list
+            """
+
+            Credentials.AccountsList.append(self)
 
         
