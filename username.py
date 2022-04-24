@@ -1,6 +1,3 @@
-import random
-import string
-
 from collections import UserList, UserString
 
 from httplib2 import Credentials
