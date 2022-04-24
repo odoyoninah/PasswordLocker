@@ -12,7 +12,7 @@ def setUp(self):
     """
     Set up method to run before each test cases.
     """
-    self.new_user = User("Annapurna", "Nins", "Nina45", "12345")   # create user object
+    self.new_user = User("Annapurna", "Nins", "Nina45", "12345")  
 
 def test_init(self):
     """
@@ -28,7 +28,7 @@ def test_save_user(self):
     test_save_user test case to test if the user object is saved into
     the user list
     """
-    self.new_user.save_user()  # saving the new user
+    self.new_user.save_user()  
     self.assertEqual(len(User.display_users()), 1)
 
 def test_delete_user(self):
