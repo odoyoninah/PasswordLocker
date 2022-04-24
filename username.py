@@ -9,13 +9,21 @@ class User:
     UserList = []
 
     def __init__(self, firstname, lastname, username, password):
+
+        """
+        ___init___method for user class
+        """
         self.firstname = firstname
         self.lastname = lastname
         self.username = username
         self.password = password
 
     def save_user(self):
+        """
+        save_user method saves user objects into user_list
+        """
         User.UserList.append(self)
+
 
     def delete_user(self):
         User.UserList.remove(self)
