@@ -110,6 +110,17 @@ class User:
             """
             for account in cls.AccountsList:
                 return cls.AccountsList
+        
+        @classmethod
+        def find_by_number(cls, number):
+
+            """
+            method that takes in a number and returns a account that matches that number
+            """
+
+            for account in cls.AccountsList:
+                if account.accountusername == number:
+                    return account
             
 
         
