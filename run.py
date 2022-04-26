@@ -56,7 +56,7 @@ def find_account(accountname):
     Function that finds an account by accountname and returns the account
     """
     return Credentials.find_by_accountname(accountname)
-    
+
 def display_accounts():
     """
     Function that returns the account list
@@ -109,24 +109,28 @@ def main():
                 print("You dont seem to have any users saved yet")
                 print('\n')
 
-        elif short_code == 'del':
-            print("Enter the username of the user you want to delete")
-            search_user = input()
-            if  find_user_by_username(search_user):
-                search_user = find_user_by_username(search_user)
-                delete_user(search_user)
-                print(f"{search_user.first_name} {search_user.last_name} has been deleted")
+        elif short_code =='del':
+            print("Enter the username of the account you want to delete")
+            search_username = input()
+            if find_account(search_username):
+                search_account = find_account(search_username)
+                search_account.delete_account()
+                print(f"{search_account.accountname} account deleted")
                 print('\n')
-                
+            else:
+                print("That account does not exist")
+                print('\n')
 
-        elif short_code == "ex":
+        elif short_code == 'ex':
             print("Bye .......")
             break
+
         else:
             print("I really didn't get that. Please use the short codes")
+                
 
-        print("Use these short codes : ca - create a new account, da - display accounts, fa - find an account, ex - exit the user list.")
-
+       
+            
 if __name__ == '__main__':
     main()
 
