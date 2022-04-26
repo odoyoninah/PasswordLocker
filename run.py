@@ -26,11 +26,11 @@ def display_users():
     """
     return User.display_users()
 
-def find_user_by_number(number):
+def find_user_by_username(username):
     """
-    Function that finds a user by number and returns the user
+    Function that finds a user by username and returns the user
     """
-    return User.find_by_number(number)
+    return User.find_by_username(username)
 
 def create_account(accountname, accountusername, accountpassword):
     """
@@ -51,12 +51,12 @@ def delete_account(account):
     """
     account.delete_account()
 
-def find_account_by_number(number):
+def find_account(accountname):
     """
-    Function that finds an account by number and returns the account
+    Function that finds an account by accountname and returns the account
     """
-    return Credentials.find_by_number(number)
-
+    return Credentials.find_by_accountname(accountname)
+    
 def display_accounts():
     """
     Function that returns the account list
@@ -69,7 +69,7 @@ def main():
         user_name = input()
         print(f"Hello {user_name}. What would you like to do?")
         print('\n')
-        print("Use these short codes : ca - create a new user account, da - display accounts, fa - find an account, ex - exit the user list, del - delete an account")
+        print("Use these short codes : ca - create a new user account, da - display accounts, ex - exit the user list, del - delete an account")
     
         short_code = input().lower()
 
@@ -111,38 +111,12 @@ def main():
 
         elif short_code == 'del':
             print("Enter the username of the user you want to delete")
-            search_number = input()
-            if find_user_by_number(search_number):
-                search_user = find_user_by_number(search_number)
-                print(f"{search_user.first_name} {search_user.last_name}")
-                print('-' * 20)
-
-                print("Are you sure you want to delete this user? y/n")
-                confirm = input().lower()
-                if confirm == 'y':
-                    delete_user(search_user)
-                    print("User has been deleted")
-                else:
-                    print("User was not deleted")
-            else:
-                print("User does not exist")
-
-        elif short_code == 'fa':
-            if display_users():
-                print("Enter the number of the user you want to search for")
-                search_number = int(input())
-                if find_user_by_number(search_number):
-                    search_user = find_user_by_number(search_number)
-                    print(f"{search_user.first_name} {search_user.last_name}")
-                    print('-' * 20)
-
-                    print(f"Username: {search_user.username}")
-                    print(f"Password: {search_user.password}")
-                    print('\n')
-                else:
-                    print("That user does not exist")
-            else:
-                print("You dont seem to have any users saved yet")
+            search_user = input()
+            if  find_user_by_username(search_user):
+                search_user = find_user_by_username(search_user)
+                delete_user(search_user)
+                print(f"{search_user.first_name} {search_user.last_name} has been deleted")
+                print('\n')
                 
 
         elif short_code == "ex":

@@ -48,16 +48,13 @@ class User:
         return cls.UserList
 
     @classmethod
-    def find_by_number(cls, number):
-
+    def find_by_username(cls, username):
         """
-        method that takes in a number and returns a user that matches that number
+        Method that takes in a username and returns a user that matches that username.
         """
-
-        for user in cls.UserList:
-            if user.username == number:
-                return user 
-
+            for user in cls.UserList:
+                if user.username == username:
+                    return user
     @classmethod
     def user_exist(cls, username):
 
