@@ -52,9 +52,10 @@ class User:
         """
         Method that takes in a username and returns a user that matches that username.
         """
-            for user in cls.UserList:
-                if user.username == username:
-                    return user
+        for user in cls.UserList:
+            if user.username == username:
+                return user
+
     @classmethod
     def user_exist(cls, username):
 
