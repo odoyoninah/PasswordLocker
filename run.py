@@ -69,7 +69,8 @@ def main():
         user_name = input()
         print(f"Hello {user_name}. What would you like to do?")
         print('\n')
-        print("Use these short codes : cc - create a new user account, da - display accounts, fa - find an account, ex - exit the user list.")
+        print("Use these short codes : cc - create a new user account, da - display accounts, fa - find an account, ex - exit the user list, del - delete an account")
+    
         short_code = input().lower()
 
         if short_code == 'cc':
@@ -89,6 +90,49 @@ def main():
             p_word = input()
 
             save_user(create_user(f_name, l_name, u_name, p_word))
+            print('\n')
+
+            print(f"New User {f_name} {l_name} created")
+            print('\n')
+
+        elif short_code == 'da':
+            if display_users():
+                print("Here is a list of all your users")
+                print('\n')
+
+                for user in display_users():
+                    print(f"{user.first_name} {user.last_name} .....{user.username}")
+
+                print('\n')
+            else:
+                print('\n')
+                print("You dont seem to have any users saved yet")
+                print('\n')
+
+        elif short_code == 'fa':
+            if display_users():
+                print("Enter the number of the user you want to search for")
+                search_number = int(input())
+                if find_user_by_number(search_number):
+                    search_user = find_user_by_number(search_number)
+                    print(f"{search_user.first_name} {search_user.last_name}")
+                    print('-' * 20)
+
+                    print(f"Username: {search_user.username}")
+                    print(f"Password: {search_user.password}")
+                    print('\n')
+                else:
+                    print("That user does not exist")
+            else:
+                print("You dont seem to have any users saved yet")
+
+        elif short_code == "ex":
+            print("Bye .......")
+            break
+        else:
+            print("I really didn't get that. Please use the short codes")
+
+        print("Use these short codes : ca - create a new account, da - display accounts, fa - find an account, ex - exit the user list.")
 
 if __name__ == '__main__':
     main()
