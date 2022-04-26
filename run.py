@@ -90,6 +90,9 @@ def main():
 
             save_user(create_user(f_name, l_name, u_name, p_word))
 
+if __name__ == '__main__':
+    main()
+
         
 
 
