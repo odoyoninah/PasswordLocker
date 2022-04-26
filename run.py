@@ -51,11 +51,17 @@ def delete_account(account):
     """
     account.delete_account()
 
+def existing_account(name):
+    """
+    Function that checks if an account exists and returns a Boolean
+    """
+    return Credentials.find_by_account(name)
+
 def find_account(accountname):
     """
     Function that finds an account by accountname and returns the account
     """
-    return Credentials.find_by_accountname(accountname)
+    return Credentials.find_by_account(accountname)
 
 def display_accounts():
     """
@@ -69,7 +75,7 @@ def main():
         user_name = input()
         print(f"Hello {user_name}. What would you like to do?")
         print('\n')
-        print("Use these short codes : ca - create a new user account, da - display accounts, ex - exit the user list, del - delete an account")
+        print("Use these short codes : ca - create a new user account, da - display accounts, ex - exit the user list, fa-find an account, del - delete an account")
     
         short_code = input().lower()
 
@@ -101,7 +107,7 @@ def main():
                 print('\n')
 
                 for user in display_users():
-                    print(f"{user.first_name} {user.last_name} .....{user.username}")
+                    print(f"{user.firstname} {user.lastname} .....{user.username}")
 
                 print('\n')
             else:
@@ -109,14 +115,29 @@ def main():
                 print("You dont seem to have any users saved yet")
                 print('\n')
 
-        elif short_code =='del':
+        elif short_code == 'fa':
+            print("Enter the username of the account you want to find")
+            option = input()
+            if existing_account(option):
+
+            # search_accountname = input()
+            # if find_account(search_accountname):
+            #     search_account = find_account(search_accountname)
+            #     print(f"{search_account.accountname} {search_account.accountusername} .....{search_account.accountpassword}")
+
+            elif short_code == 'del':
             print("Enter the username of the account you want to delete")
-            search_username = input()
-            if find_account(search_username):
-                search_account = find_account(search_username)
-                search_account.delete_account()
-                print(f"{search_account.accountname} account deleted")
-                print('\n')
+            option = input()
+            if existing_account(option):
+                search_accountname = input()
+                if find_account(search_accountname):
+                    search_account = find_account(search_accountname)
+                    print(f"{search_account.accountname} {search_account.accountusername} .....{search_account.accountpassword}")
+                    search_account.delete_account()
+                    print(f"{search_account.accountname} {search_account.accountusername} .....{search_account.accountpassword}")
+                    print('\n')
+                    print("Account successfully deleted")
+                    print('\n')
             else:
                 print("That account does not exist")
                 print('\n')

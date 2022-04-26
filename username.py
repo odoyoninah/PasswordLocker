@@ -1,4 +1,7 @@
 
+# from httplib2 import Credentials
+
+
 from httplib2 import Credentials
 
 
@@ -68,58 +71,70 @@ class User:
                 return True
         return False   
 
-    class Credentials:
+class Credentials:
+    """
+    Class that generates a list of credentials
+    """
+
+    AccountsList = []
+
+    def __init__(self, accountname, accountusername, accountpassword):
+
         """
-        Class that generates a list of credentials
+        __init__ method that helps us define properties for our objects.
         """
 
-        AccountsList = []
+        self.accountname = accountname
+        self.accountusername = accountusername
+        self.accountpassword = accountpassword
 
-        def __init__(self, accountname, accountusername, accountpassword):
+    def save_account(self):
 
-            """
-            __init__ method that helps us define properties for our objects.
-            """
+        """
+        save_account method saves account objects into account_list
+        """
 
-            self.accountname = accountname
-            self.accountusername = accountusername
-            self.accountpassword = accountpassword
+        Credentials.AccountsList.append(self)
 
-        def save_account(self):
-
-            """
-            save_account method saves account objects into account_list
-            """
-
-            Credentials.AccountsList.append(self)
-
-        def delete_account(self):
-                
-                """
-                delete_account method deletes a saved account from the account_list
-                """
-    
-                Credentials.AccountsList.remove(self)
-
-        @classmethod
-        def display_accounts(cls):
-
-            """
-            method that returns the account list
-            """
-            for account in cls.AccountsList:
-                return cls.AccountsList
-        
-        @classmethod
-        def find_by_number(cls, number):
-
-            """
-            method that takes in a number and returns a account that matches that number
-            """
-
-            for account in cls.AccountsList:
-                if account.accountusername == number:
-                    return account
+    def delete_account(self):
             
+            """
+            delete_account method deletes a saved account from the account_list
+            """
 
+            Credentials.AccountsList.remove(self)
+
+    @classmethod
+    def existing_account(cls, name):
+        """
+        Method that checks if an account exists from the account list
+        """
+        for account in cls.AccountsList:
+            if account.accountname == name:
+                return True
+        return False
+
+    @classmethod
+    def find_by_account(cls, accountname):
+
+        """
+        # method that takes in a name and returns a account that matches that username
+        """
+
+        for account in cls.AccountsList:
+            if account.accountname == accountname:
+                return account
         
+
+    @classmethod
+    def display_accounts(cls):
+
+        """
+        method that returns the account list
+        """
+        # for account in cls.AccountsList:
+        return cls.AccountsList
+    
+    
+
+    
