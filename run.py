@@ -119,25 +119,21 @@ def main():
             print("Enter the username of the account you want to find")
             option = input()
             if existing_account(option):
+                search_account = find_account(option)
+                print(f"{search_account.accountname} {search_account.accountusername} {search_account.accountpassword}")
+                print('-' * 20)
 
             # search_accountname = input()
             # if find_account(search_accountname):
             #     search_account = find_account(search_accountname)
             #     print(f"{search_account.accountname} {search_account.accountusername} .....{search_account.accountpassword}")
-
-            elif short_code == 'del':
+        elif short_code == 'del':
             print("Enter the username of the account you want to delete")
             option = input()
             if existing_account(option):
-                search_accountname = input()
-                if find_account(search_accountname):
-                    search_account = find_account(search_accountname)
-                    print(f"{search_account.accountname} {search_account.accountusername} .....{search_account.accountpassword}")
-                    search_account.delete_account()
-                    print(f"{search_account.accountname} {search_account.accountusername} .....{search_account.accountpassword}")
-                    print('\n')
-                    print("Account successfully deleted")
-                    print('\n')
+                delete_account(option)
+                print(f"{option} deleted")
+                print('\n')
             else:
                 print("That account does not exist")
                 print('\n')
