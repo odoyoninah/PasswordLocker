@@ -107,7 +107,7 @@ def main():
                 print('\n')
 
                 for user in display_users():
-                    print(f"{user.firstname} {user.lastname} .....{user.username}")
+                    print(f"{user.firstname} {user.lastname} {user.username} .....{user.password}")
 
                 print('\n')
             else:
